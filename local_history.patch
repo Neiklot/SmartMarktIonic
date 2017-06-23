@@ -1,0 +1,16 @@
+Index: www/build/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- www/build/main.css	(revision )
++++ www/build/main.css	(revision )
+@@ -21740,7 +21740,7 @@
+ 
+ .toolbar-background-md {
+   border-color: #b2b2b2;
+-  background: #7d4682;
++  background: #f8f8f8;
+ }
+ 
+ .header-md::after,

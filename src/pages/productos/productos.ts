@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-products',
-  templateUrl: 'src/pages/stock/stock.html'
+  templateUrl: 'productos.html'
 })
 export class ProductsPage {
   selectedItem: any;
