@@ -10,6 +10,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { ProductsPage } from '../pages/productos/productos';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 var AppModule = (function () {
@@ -22,7 +23,8 @@ AppModule = __decorate([
         declarations: [
             MyApp,
             HomePage,
-            ListPage
+            ListPage,
+            ProductsPage
         ],
         imports: [
             BrowserModule,
@@ -32,7 +34,8 @@ AppModule = __decorate([
         entryComponents: [
             MyApp,
             HomePage,
-            ListPage
+            ListPage,
+            ProductsPage
         ],
         providers: [
             StatusBar,

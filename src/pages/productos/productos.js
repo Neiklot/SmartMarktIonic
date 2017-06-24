@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-var ProductosPage = ProductosPage_1 = (function () {
-    function ProductosPage(navCtrl, navParams) {
+var ProductsPage = ProductsPage_1 = (function () {
+    function ProductsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         // If we navigated to this page, we will have an item available as a nav param
@@ -27,21 +27,21 @@ var ProductosPage = ProductosPage_1 = (function () {
             });
         }
     }
-    ProductosPage.prototype.itemTapped = function (event, item) {
+    ProductsPage.prototype.itemTapped = function (event, item) {
         // That's right, we're pushing to ourselves!
-        this.navCtrl.push(ProductosPage_1, {
+        this.navCtrl.push(ProductsPage_1, {
             item: item
         });
     };
-    return ProductosPage;
+    return ProductsPage;
 }());
-ProductosPage = ProductosPage_1 = __decorate([
+ProductsPage = ProductsPage_1 = __decorate([
     Component({
-        selector: 'page-productos',
+        selector: 'page-products',
         templateUrl: 'productos.html'
     }),
     __metadata("design:paramtypes", [NavController, NavParams])
-], ProductosPage);
-export { ProductosPage };
-var ProductosPage_1;
+], ProductsPage);
+export { ProductsPage };
+var ProductsPage_1;
 //# sourceMappingURL=productos.js.map
