@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-products',
-  templateUrl: 'src/pages/stock/stock.html'
+  selector: 'page-stock',
+  templateUrl: 'stock.html'
 })
 export class ProductsPage {
   selectedItem: any;
