@@ -1,2 +1,42 @@
-<ion-content>
+<ion-content >
+
+  <ion-scroll scrollY="true">
+  </ion-scroll>
+
+  <ion-grid>
+    <ion-row *ngFor="let item of items">
+      <ion-col>
+        <div class="producto">
+        <div class="card">
+
+        <div class="item item-body">
+        <img class="full-image" src="img/cocacola.jpg">
+          <div class="item item-avatar">
+            <img src="img/cocacola.jpg">
+          </div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget pharetra tortor. Proin quis eros imperdiet, facilisis nisi in, tincidunt orci. Nam tristique elit massa, quis faucibus augue finibus ac.
+        </div>
+        </div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="producto">
+          <div class="card">
+
+            <div class="item item-body">
+              <img class="full-image" src="img/cocacola.jpg">
+              <div class="item item-avatar">
+                <img src="img/cocacola.jpg">
+              </div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget pharetra tortor. Proin quis eros imperdiet, facilisis nisi in, tincidunt orci. Nam tristique
+               elit massa, quis faucibus augue finibus ac
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
 </ion-content>
