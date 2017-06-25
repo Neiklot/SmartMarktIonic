@@ -4,9 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/productos/list/list';
+import { ListaCompraPage } from '../pages/productos/listaCompra/listacompra';
 import { ProductsPage } from '../pages/productos/productos';
 import { StockPage } from '../pages/productos/stock/stock';
+import { ListPage } from '../pages/list/list';
 
 @Component({
   templateUrl: 'app.html'

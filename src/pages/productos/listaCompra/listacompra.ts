@@ -1,19 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { StockPage } from '../productos/stock/stock';
-import { ListaCompraPage } from '../productos/listaCompra/listacompra';
-
 @Component({
-  selector: 'page-products',
-  templateUrl: 'productos.html'
+  selector: 'page-list',
+  templateUrl: 'listacompra.html'
 })
-export class ProductsPage {
+export class ListaCompraPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-  tab1Root: any = StockPage;
-  tab2Root: any = ListaCompraPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -35,7 +30,7 @@ export class ProductsPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ProductsPage, {
+    this.navCtrl.push(ListaCompraPage, {
       item: item
     });
   }
