@@ -9,10 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { StockPage } from '../productos/stock/stock';
+import { ListaCompraPage } from '../productos/listaCompra/listacompra';
 var ProductsPage = ProductsPage_1 = (function () {
     function ProductsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.tab1Root = StockPage;
+        this.tab2Root = ListaCompraPage;
         // If we navigated to this page, we will have an item available as a nav param
         this.selectedItem = navParams.get('item');
         // Let's populate this page with some filler content for funzies

@@ -1,4 +1,5 @@
 {
+    "compileOnSave": false,
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": false,
@@ -19,7 +20,7 @@
   "exclude": [
     "node_modules"
   ],
-  "compileOnSave": false,
+  
   "atom": {
     "rewriteTsconfig": false
   }

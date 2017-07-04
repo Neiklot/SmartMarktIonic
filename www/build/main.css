@@ -1,5 +1,23 @@
-.masters {
-  background: green;
+.producto {
+  background-color: #bc7ff1;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.item-avatar img {
+  margin: 2vw;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Scale the image - Center and crop image*/
+  object-position: center;
+  /* Center the image within the element - Center and crop image*/
+}
+
+.full-image {
+  width: 100%;
 }
 
 .ion-ios-add:before {

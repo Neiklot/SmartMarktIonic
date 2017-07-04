@@ -12,8 +12,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { ProductsPage } from '../pages/productos/productos';
+import { ListPage } from '../pages/list/list';
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen) {
         this.platform = platform;
