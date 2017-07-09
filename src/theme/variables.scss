@@ -40,7 +40,17 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   smartmarkt: #660066,
+  white: #ffffff,
+  smartmarktSubMenu: #bc7ff1
 );
+
+
+.fab[mini] {
+    margin: 8px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
 
 
 // App iOS Variables
@@ -73,11 +83,13 @@ $colors: (
 
 @import "ionic.theme.default";
 
+
 .producto{
   background-color: #bc7ff1;
   border-radius: 8px;
   margin-bottom:2px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .item-avatar img{

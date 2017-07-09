@@ -1,0 +1,42 @@
+
+
+<ion-header>
+  <ion-navbar color="smartmarktSubMenu">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-fab top right #fab >
+    <button ion-fab mini color="white"><img src="http://localhost:8080/SmartMarktServer/product/{{selectedItem.id}}/getIcon"></button>
+  </ion-fab>
+
+<ion-content >
+  <ion-fab bottom right #fab >
+      <button ion-fab color="smartmarkt">Guardar</button>
+    </ion-fab>
+  <ion-scroll scrollY="true">
+  </ion-scroll>
+      <img class="full-image" (click)="imageTapped($event, selectedItem)" src="http://localhost:8080/SmartMarktServer/product/{{selectedItem.id}}/getImage">
+
+
+  <ion-grid>
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary">Nombre:</ion-label>
+        <ion-input placeholder="{{selectedItem.name}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Código:</ion-label>
+        <ion-input placeholder="{{selectedItem.name}}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Stock:</ion-label>
+        <ion-input placeholder="{{selectedItem.name}}"></ion-input>
+      </ion-item>
+    </ion-list>
+
+  </ion-grid>
+</ion-content>

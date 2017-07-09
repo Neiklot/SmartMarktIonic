@@ -8,6 +8,7 @@ import { ListaCompraPage } from '../pages/productos/listaCompra/listacompra';
 import { ProductsPage } from '../pages/productos/productos';
 import { StockPage } from '../pages/productos/stock/stock';
 import { ListPage } from '../pages/list/list';
+import { ProductPage } from '../pages/product/product';
 
 @Component({
   templateUrl: 'app.html'

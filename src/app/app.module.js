@@ -16,6 +16,7 @@ import { StockPage } from '../pages/productos/stock/stock';
 import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ProductPage } from '../pages/product/product';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,7 +30,8 @@ AppModule = __decorate([
             ListaCompraPage,
             ProductsPage,
             StockPage,
-            ListPage
+            ListPage,
+            ProductPage
         ],
         imports: [
             BrowserModule,
@@ -43,7 +45,8 @@ AppModule = __decorate([
             ListaCompraPage,
             ProductsPage,
             StockPage,
-            ListPage
+            ListPage,
+            ProductPage
         ],
         providers: [
             StatusBar,
