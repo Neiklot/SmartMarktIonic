@@ -13,7 +13,7 @@
 
 <ion-content >
   <ion-fab bottom right #fab >
-      <button ion-fab color="smartmarkt">Guardar</button>
+      <button ion-fab color="smartmarkt" (click)="guardarPushed($event,selectedItem)">Guardar</button>
     </ion-fab>
   <ion-scroll scrollY="true">
   </ion-scroll>
@@ -24,17 +24,27 @@
     <ion-list>
       <ion-item>
         <ion-label color="primary">Nombre:</ion-label>
-        <ion-input placeholder="{{selectedItem.name}}"></ion-input>
+        <ion-input  [(ngModel)]="selectedItem.name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary">Código:</ion-label>
-        <ion-input placeholder="{{selectedItem.name}}"></ion-input>
+        <ion-label color="primary" right>Código:</ion-label>
+        <ion-input [(ngModel)]="selectedItem.code"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary">Stock:</ion-label>
-        <ion-input placeholder="{{selectedItem.name}}"></ion-input>
+        <ion-input [(ngModel)]="selectedItem.stock"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Cantidad:</ion-label>
+        <ion-input [(ngModel)]="selectedItem.initialQuantity"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Unidades/Peso:</ion-label>
+        <ion-input [(ngModel)]="selectedItem.countUncount"></ion-input>
       </ion-item>
     </ion-list>
 

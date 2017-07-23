@@ -42,7 +42,17 @@ export class StockPage {
     console.log(item.name);
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(ProductPage, {
-      item: item
+      item: item,
+      pamtallaCrear:false
+    });
+  }
+
+  nuevoPushed(event) {
+    console.log("nuevo");
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(ProductPage, {
+      item: null,
+      pamtallaCrear:true
     });
   }
 }

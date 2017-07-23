@@ -58136,26 +58136,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProductPage = (function () {
+var ProductPage = ProductPage_1 = (function () {
     function ProductPage(navCtrl, navParams, http) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
+        this.crear = false;
+        this.crear = navParams.get('pantallaCrear');
         // If we navigated to this page, we will have an item available as a nav param
-        this.selectedItem = navParams.get('item');
+        if (navParams.get('item') != null) {
+            this.selectedItem = navParams.get('item');
+        }
+        else {
+            this.selectedItem = { name: "", icon: "", image: "" };
+        }
     }
     ProductPage.prototype.imageTapped = function (event, item) {
         console.log(item.name);
     };
+    ProductPage.prototype.guardarPushed = function (event, item, crear) {
+        if (this.crear) {
+            this.http.post("http://localhost:8080/SmartMarktServer/product", item)
+                .map(function (result) { return result.json(); })
+                .flatMap(function (result) { return result; })
+                .map(function (result) { return result; })
+                .toArray()
+                .subscribe(function (result) {
+                console.log(result);
+            }, function (error) {
+                console.error(error);
+            });
+            this.navCtrl.push(ProductPage_1);
+        }
+        else {
+            this.http.put("http://localhost:8080/SmartMarktServer/product", item)
+                .map(function (result) { return result.json(); })
+                .flatMap(function (result) { return result; })
+                .map(function (result) { return result; })
+                .toArray()
+                .subscribe(function (result) {
+                console.log(result);
+            }, function (error) {
+                console.error(error);
+            });
+            this.navCtrl.push(ProductPage_1);
+        }
+    };
     return ProductPage;
 }());
-ProductPage = __decorate([
+ProductPage = ProductPage_1 = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-product',template:/*ion-inline-start:"J:\SmartMarkt\src\pages\product\product.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar color="smartmarktSubMenu">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-fab top right #fab >\n\n    <button ion-fab mini color="white"><img src="http://localhost:8080/SmartMarktServer/product/{{selectedItem.id}}/getIcon"></button>\n\n  </ion-fab>\n\n\n\n<ion-content >\n\n  <ion-fab bottom right #fab >\n\n      <button ion-fab color="smartmarkt">Guardar</button>\n\n    </ion-fab>\n\n  <ion-scroll scrollY="true">\n\n  </ion-scroll>\n\n      <img class="full-image" (click)="imageTapped($event, selectedItem)" src="http://localhost:8080/SmartMarktServer/product/{{selectedItem.id}}/getImage">\n\n\n\n\n\n  <ion-grid>\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label color="primary">Nombre:</ion-label>\n\n        <ion-input placeholder="{{selectedItem.name}}"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary">Código:</ion-label>\n\n        <ion-input placeholder="{{selectedItem.name}}"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary">Stock:</ion-label>\n\n        <ion-input placeholder="{{selectedItem.name}}"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"J:\SmartMarkt\src\pages\product\product.html"*/
+        selector: 'page-product',template:/*ion-inline-start:"J:\SmartMarkt\src\pages\product\product.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar color="smartmarktSubMenu">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-fab top right #fab >\n\n    <button ion-fab mini color="white"><img src="http://localhost:8080/SmartMarktServer/product/{{selectedItem.id}}/getIcon"></button>\n\n  </ion-fab>\n\n\n\n<ion-content >\n\n  <ion-fab bottom right #fab >\n\n      <button ion-fab color="smartmarkt" (click)="guardarPushed($event,selectedItem)">Guardar</button>\n\n    </ion-fab>\n\n  <ion-scroll scrollY="true">\n\n  </ion-scroll>\n\n      <img class="full-image" (click)="imageTapped($event, selectedItem)" src="http://localhost:8080/SmartMarktServer/product/{{selectedItem.id}}/getImage">\n\n\n\n\n\n  <ion-grid>\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label color="primary">Nombre:</ion-label>\n\n        <ion-input  [(ngModel)]="selectedItem.name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" right>Código:</ion-label>\n\n        <ion-input [(ngModel)]="selectedItem.code"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary">Stock:</ion-label>\n\n        <ion-input [(ngModel)]="selectedItem.stock"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary">Cantidad:</ion-label>\n\n        <ion-input [(ngModel)]="selectedItem.initialQuantity"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary">Unidades/Peso:</ion-label>\n\n        <ion-input [(ngModel)]="selectedItem.countUncount"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"J:\SmartMarkt\src\pages\product\product.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object])
 ], ProductPage);
 
+var ProductPage_1, _a, _b, _c;
 //# sourceMappingURL=product.js.map
 
 /***/ }),
@@ -58266,7 +58302,7 @@ var ProductsPage = ProductsPage_1 = (function () {
 }());
 ProductsPage = ProductsPage_1 = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-products',template:/*ion-inline-start:"J:\SmartMarkt\src\pages\productos\productos.html"*/'<ion-header>\n  <ion-navbar color="smartmarkt">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Productos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content >\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n\n    <!-- pages/tabs/tabs.html -->\n    <ion-tabs  color="smartmarkt">\n      <!-- Indicates with tabsPage should handle each tab here -->\n      <ion-tab [root]="tab1Root" tabTitle="Stock" tabIcon="cog"></ion-tab>\n      <ion-tab [root]="tab2Root" tabTitle="Lista" tabIcon="chatbubbles"></ion-tab>\n    </ion-tabs>\n\n\n</ion-content>\n"\n'/*ion-inline-end:"J:\SmartMarkt\src\pages\productos\productos.html"*/
+        selector: 'page-products',template:/*ion-inline-start:"J:\SmartMarkt\src\pages\productos\productos.html"*/'<ion-header>\n  <ion-navbar color="smartmarkt">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Productos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content >\n    <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n\n    <!-- pages/tabs/tabs.html -->\n    <ion-tabs  color="smartmarkt">\n      <!-- Indicates with tabsPage should handle each tab here -->\n      <ion-tab [root]="tab1Root" tabTitle="Stock" tabIcon="cog"></ion-tab>\n      <ion-tab [root]="tab2Root" tabTitle="Lista" tabIcon="chatbubbles"></ion-tab>\n    </ion-tabs>\n\n\n</ion-content>\n"\n'/*ion-inline-end:"J:\SmartMarkt\src\pages\productos\productos.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
 ], ProductsPage);
@@ -58331,18 +58367,28 @@ var StockPage = (function () {
         console.log(item.name);
         // That's right, we're pushing to ourselves!
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__product_product__["a" /* ProductPage */], {
-            item: item
+            item: item,
+            pamtallaCrear: false
+        });
+    };
+    StockPage.prototype.nuevoPushed = function (event) {
+        console.log("nuevo");
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__product_product__["a" /* ProductPage */], {
+            item: null,
+            pamtallaCrear: true
         });
     };
     return StockPage;
 }());
 StockPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-stock',template:/*ion-inline-start:"J:\SmartMarkt\src\pages\productos\stock\stock.html"*/'<ion-content >\n\n\n\n  <ion-scroll scrollY="true">\n\n  </ion-scroll>\n\n\n\n  <ion-grid>\n\n\n\n   <ion-row wrap>\n\n     <ion-col col-6 *ngFor="let item of items">\n\n        <div class="producto"  (click)="itemTapped($event, item)">\n\n        <div class="card">\n\n\n\n        <div class="item item-body">\n\n        <img class="full-image" src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getImage">\n\n          <div class="item item-avatar">\n\n            <img src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getIcon">\n\n          </div>\n\n          <div style="font-size:3vw;margin:2vw">    {{item.name}}</div>\n\n        </div>\n\n        </div>\n\n        </div>\n\n      </ion-col>\n\n   </ion-row>\n\n\n\n<!--\n\n    <ion-row *ngFor="let item of items">\n\n      <ion-col>\n\n        <div class="producto">\n\n        <div class="card">\n\n\n\n        <div class="item item-body">\n\n        <img class="full-image" src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getImage">\n\n          <div class="item item-avatar">\n\n            <img src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getIcon">\n\n          </div>\n\n          <div style="font-size:3vw;margin:2vw">    {{item.name}}</div>\n\n        </div>\n\n        </div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col>\n\n        <div class="producto">\n\n          <div class="card">\n\n\n\n            <div class="item item-body">\n\n              <img class="full-image" src="img/cocacola.jpg">\n\n              <div class="item item-avatar">\n\n                <img src="img/bebidas.jpg">\n\n              </div>\n\n          <div style="font-size:3vw;margin:2vw">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget pharetra tortor. Proin quis eros imperdiet, facilisis nisi in, tincidunt orci. Nam tristique\n\n               elit massa, quis faucibus augue finibus ac</div>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row> -->\n\n  </ion-grid>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"J:\SmartMarkt\src\pages\productos\stock\stock.html"*/
+        selector: 'page-stock',template:/*ion-inline-start:"J:\SmartMarkt\src\pages\productos\stock\stock.html"*/'<ion-content >\n\n  <ion-fab bottom right #fab >\n\n      <button ion-fab color="smartmarkt" (click)="nuevoPushed($event)" >Nuevo</button>\n\n    </ion-fab>\n\n  <ion-scroll scrollY="true">\n\n  </ion-scroll>\n\n\n\n  <ion-grid>\n\n\n\n   <ion-row wrap>\n\n     <ion-col col-6 *ngFor="let item of items">\n\n        <div class="producto"  (click)="itemTapped($event, item)">\n\n        <div class="card">\n\n\n\n        <div class="item item-body">\n\n        <img class="full-image" src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getImage">\n\n          <div class="item item-avatar">\n\n            <img src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getIcon">\n\n          </div>\n\n          <div style="font-size:3vw;margin:2vw">    {{item.name}}</div>\n\n        </div>\n\n        </div>\n\n        </div>\n\n      </ion-col>\n\n   </ion-row>\n\n\n\n<!--\n\n    <ion-row *ngFor="let item of items">\n\n      <ion-col>\n\n        <div class="producto">\n\n        <div class="card">\n\n\n\n        <div class="item item-body">\n\n        <img class="full-image" src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getImage">\n\n          <div class="item item-avatar">\n\n            <img src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getIcon">\n\n          </div>\n\n          <div style="font-size:3vw;margin:2vw">    {{item.name}}</div>\n\n        </div>\n\n        </div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col>\n\n        <div class="producto">\n\n          <div class="card">\n\n\n\n            <div class="item item-body">\n\n              <img class="full-image" src="img/cocacola.jpg">\n\n              <div class="item item-avatar">\n\n                <img src="img/bebidas.jpg">\n\n              </div>\n\n          <div style="font-size:3vw;margin:2vw">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget pharetra tortor. Proin quis eros imperdiet, facilisis nisi in, tincidunt orci. Nam tristique\n\n               elit massa, quis faucibus augue finibus ac</div>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row> -->\n\n  </ion-grid>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"J:\SmartMarkt\src\pages\productos\stock\stock.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object])
 ], StockPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=stock.js.map
 
 /***/ }),
