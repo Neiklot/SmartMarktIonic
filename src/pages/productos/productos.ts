@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { StockPage } from '../productos/stock/stock';
-import { ListaCompraPage } from '../productos/listaCompra/listacompra';
+import { StockListaPage } from '../productos/stockLista/stockLista';
 
 @Component({
   selector: 'page-products',
@@ -13,7 +13,7 @@ export class ProductsPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
   tab1Root: any = StockPage;
-  tab2Root: any = ListaCompraPage;
+  tab2Root: any = StockListaPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param

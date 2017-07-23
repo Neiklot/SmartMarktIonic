@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListaCompraPage } from '../pages/productos/listaCompra/listacompra';
+import { StockListaPage } from '../pages/productos/stockLista/stockLista';
 import { ProductsPage } from '../pages/productos/productos';
 import { StockPage } from '../pages/productos/stock/stock';
 import { ListPage } from '../pages/list/list';
@@ -13,16 +13,18 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProductPage } from '../pages/product/product';
+import { StockProductManagePage } from '../pages/productStockManage/stockProductManage';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListaCompraPage,
+    StockListaPage,
     ProductsPage,
     StockPage,
     ListPage,
-    ProductPage
+    ProductPage,
+    StockProductManagePage
   ],
   imports: [
     BrowserModule,
@@ -33,11 +35,12 @@ import { ProductPage } from '../pages/product/product';
   entryComponents: [
     MyApp,
     HomePage,
-    ListaCompraPage,
+    StockListaPage,
     ProductsPage,
     StockPage,
       ListPage,
-      ProductPage
+      ProductPage,
+      StockProductManagePage
   ],
   providers: [
     StatusBar,

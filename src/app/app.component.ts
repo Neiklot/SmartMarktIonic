@@ -4,11 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListaCompraPage } from '../pages/productos/listaCompra/listacompra';
+import { StockListaPage } from '../pages/productos/stockLista/stockLista';
 import { ProductsPage } from '../pages/productos/productos';
 import { StockPage } from '../pages/productos/stock/stock';
 import { ListPage } from '../pages/list/list';
 import { ProductPage } from '../pages/product/product';
+import { StockProductManagePage } from '../pages/productStockManage/stockProductManage';
 
 @Component({
   templateUrl: 'app.html'

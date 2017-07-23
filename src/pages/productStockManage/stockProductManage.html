@@ -1,0 +1,47 @@
+
+
+<ion-header>
+  <ion-navbar color="smartmarktSubMenu">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Stock de {{selectedItem.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-fab bottom right #fab >
+      <button ion-fab color="smartmarkt" (click)="guardarPushed($event,selectedItem)">Guardar</button>
+    </ion-fab>
+  <ion-scroll scrollY="true">
+  </ion-scroll>
+  <ion-grid>
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary">Stock:</ion-label>
+        <ion-input disabled="true" [(ngModel)]="selectedItem.stock"></ion-input>
+      </ion-item>
+      <div style="display:flex;justify-content:center;align-items:center;">
+        <button  color="smartmarkt" ion-button round (click)="addStock($event)">+</button>
+        <button  color="smartmarkt" ion-button round (click)="removeStock($event)">-</button>
+      </div>
+      <ion-item>
+        <ion-label color="primary" right>Cantidad Inicial:</ion-label>
+          <ion-input disabled="true" [(ngModel)]="selectedItem.initialQuantity"></ion-input>
+      </ion-item>
+      <div style="display:flex;justify-content:center;align-items:center;">
+        <button  color="smartmarkt" ion-button round (click)="addQuantity($event)">+</button>
+        <button  color="smartmarkt" ion-button round (click)="removeQuantity($event)">-</button>
+      </div>
+
+    </ion-list>
+    <ion-card>
+          <ion-card-header>
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #doughnutCanvas></canvas>
+          </ion-card-content>
+        </ion-card>
+  </ion-grid>
+</ion-content>

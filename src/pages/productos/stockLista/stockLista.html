@@ -1,0 +1,14 @@
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+        <div class="item item-avatar">
+      <img src="http://localhost:8080/SmartMarktServer/product/{{item.id}}/getIcon" item-left/>
+      {{item.name}}
+    </div>
+      <div class="item-note" item-right>
+        {{item.stock}}/{{item.initialQuantity}}
+      </div>
+    </button>
+  </ion-list>
+
+</ion-content>
